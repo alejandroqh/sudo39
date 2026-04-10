@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="docs/logo.png" alt="sudo39 logo" width="400">
-</p>
+# sudo39
 
 sudo39 is a small MCP server built with [TurboMCP](https://github.com/Epistates/turbomcp). Its primary tool is:
 
