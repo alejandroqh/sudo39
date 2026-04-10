@@ -1,6 +1,12 @@
+<p align="center">
+  <img src="docs/logo.png" alt="sudo39 logo" width="400">
+</p>
+
 # sudo39
 
-`sudo39` is a Rust MCP server built with TurboMCP. Its primary tool is:
+sudo39 is a Rust MCP server built with TurboMCP. Its primary tool is:
+
+> **WARNING:** With great power comes great responsibility. This server grants elevated OS privileges to AI agents. Misconfiguration can allow arbitrary root-level execution. Read the full Elevation Model section before deploying.
 
 ```text
 sudo_run(command, arguments?, mode?)

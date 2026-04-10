@@ -1,9 +1,26 @@
-/target/
+# Build
+/target
+/dist
 
-# Local editor and OS files
+# macOS
 .DS_Store
+
+# IDE
+.idea/
+.vscode/
 *.swp
 *.swo
+*~
+
+# Rust
+**/*.rs.bk
+Cargo.lock
+
+# Claude
+CLAUDE.md
+
+# Local config
+TODO.md
 
 # Local environment files
 .env

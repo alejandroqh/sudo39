@@ -16,8 +16,8 @@ struct Sudo39 {
 
 #[server(
     name = "sudo39",
-    version = "0.1.0",
-    description = "MCP server exposing a guarded OS elevation tool."
+    version = "1.0.0",
+    description = "Guarded privilege-elevation MCP server for AI agents."
 )]
 impl Sudo39 {
     fn from_env() -> Self {
@@ -653,7 +653,16 @@ fn audit_policy_update(action: &str, value: &str) {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    Sudo39::from_env().run_stdio().await?;
+    use turbomcp::prelude::*;
+
+    let mut protocol = ProtocolConfig::multi_version();
+    protocol.allow_fallback = true;
+
+    Sudo39::from_env()
+        .builder()
+        .with_protocol(protocol)
+        .serve()
+        .await?;
     Ok(())
 }
 
