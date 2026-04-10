@@ -2,8 +2,6 @@
   <img src="docs/logo.png" alt="sudo39 logo" width="400">
 </p>
 
-# sudo39
-
 sudo39 is a small MCP server built with [TurboMCP](https://github.com/Epistates/turbomcp). Its primary tool is:
 
 > **WARNING:** With great power comes great responsibility. This server grants elevated OS privileges to AI agents. Misconfiguration can allow arbitrary root-level execution. Read the full Elevation Model section before deploying.
