@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "sudo39": {
+      "command": "/Users/aquintanar/Development/sudo39/dist/sudo39-macos-arm64",
+      "args": [],
+      "env": {
+        "SUDO39_ALLOWED_PROGRAMS": "id,whoami,systemctl"
+      }
+    }
+  }
+}

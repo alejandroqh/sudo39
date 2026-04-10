@@ -1,13 +1,19 @@
 [package]
 name = "sudo39"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
-description = "MCP server exposing a guarded OS privilege-elevation tool (sudo, pkexec, macOS admin prompt, Windows UAC)"
+description = "Guarded privilege-elevation MCP server for AI agents (sudo, pkexec, macOS admin prompt, Windows UAC)"
 license = "MIT"
-repository = "https://github.com/anthropics/sudo39"
+authors = ["Alejandro Quintanar"]
+repository = "https://github.com/alejandroqh/sudo39"
 readme = "README.md"
 keywords = ["mcp", "sudo", "elevation", "privilege", "osascript"]
 categories = ["command-line-utilities", "os"]
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
 
 [dependencies]
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
