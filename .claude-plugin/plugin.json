@@ -1,0 +1,9 @@
+{
+  "name": "sudo39",
+  "version": "1.0.0",
+  "description": "Guarded privilege-elevation MCP server for AI agents. Run commands via sudo, pkexec, macOS admin prompt, or Windows UAC, gated by an allowlist policy and confirmation-phrase workflow.",
+  "author": "sudo39",
+  "components": {
+    "mcp": ".mcp.json"
+  }
+}

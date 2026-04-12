@@ -1,0 +1,68 @@
+{
+  "id": "sudo39",
+  "name": "sudo39",
+  "description": "Guarded privilege-elevation MCP server for AI agents. Run commands via sudo, pkexec, macOS admin prompt, or Windows UAC, gated by an allowlist policy.",
+  "version": "1.0.0",
+  "contracts": {
+    "tools": [
+      "sudo_run",
+      "sudo39_policy",
+      "sudo39_add_allowed_program",
+      "sudo39_remove_allowed_program",
+      "sudo39_set_allow_unsafe",
+      "sudo39_reload_policy_from_env"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "binaryPath": {
+        "type": "string",
+        "description": "Path to the sudo39 binary. Defaults to 'sudo39' (must be in PATH)."
+      },
+      "allowedPrograms": {
+        "type": "string",
+        "description": "Comma-separated list of allowed programs (sets SUDO39_ALLOWED_PROGRAMS)."
+      },
+      "allowUnsafe": {
+        "type": "boolean",
+        "description": "Allow any program without allowlist check (sets SUDO39_ALLOW_UNSAFE=1)."
+      },
+      "timeoutSecs": {
+        "type": "number",
+        "description": "Per-execution timeout in seconds (sets SUDO39_TIMEOUT_SECS). Default: 30."
+      },
+      "askpassPath": {
+        "type": "string",
+        "description": "Path to askpass helper for sudo -A (sets SUDO39_ASKPASS)."
+      }
+    }
+  },
+  "uiHints": {
+    "binaryPath": {
+      "label": "Binary path",
+      "placeholder": "sudo39",
+      "help": "Absolute path to the sudo39 binary, or leave empty to use PATH"
+    },
+    "allowedPrograms": {
+      "label": "Allowed programs",
+      "placeholder": "id,whoami,systemctl",
+      "help": "Comma-separated list of programs the agent is allowed to elevate"
+    },
+    "allowUnsafe": {
+      "label": "Allow unsafe (any program)",
+      "help": "Skip the allowlist - permits any program. Use with caution."
+    },
+    "timeoutSecs": {
+      "label": "Timeout (seconds)",
+      "placeholder": "30",
+      "help": "Maximum seconds a command may run before being killed"
+    },
+    "askpassPath": {
+      "label": "Askpass helper",
+      "placeholder": "/usr/lib/ssh/ssh-askpass",
+      "help": "Path to an askpass program for non-interactive sudo"
+    }
+  }
+}
