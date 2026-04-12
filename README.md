@@ -122,6 +122,58 @@ For a stdio MCP client:
 }
 ```
 
+## Plugin Integration
+
+### Claude Code
+
+Install the binary from GitHub:
+
+```bash
+cargo install sudo39
+```
+
+Then add it as an MCP server:
+
+```bash
+claude mcp add sudo39 sudo39
+```
+
+Or manually in `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "sudo39": {
+      "command": "sudo39",
+      "args": [],
+      "env": {
+        "SUDO39_ALLOWED_PROGRAMS": "id,whoami,systemctl"
+      }
+    }
+  }
+}
+```
+
+### Claude Bundle (`.claude-plugin/`)
+
+Makes sudo39 installable via `openclaw plugins install` as a Claude bundle. Maps MCP server config from `.mcp.json`.
+
+```bash
+openclaw plugins install git@github.com:alejandroqh/sudo39.git
+```
+
+### OpenClaw Native Plugin (`openclaw-plugin/`)
+
+Full OpenClaw native plugin with typed tool proxies, config schema, and automatic MCP lifecycle management. Configurable options:
+
+| Option | Description |
+|---|---|
+| `binaryPath` | Path to the sudo39 binary (default: `sudo39` in PATH) |
+| `allowedPrograms` | Comma-separated allowlist (sets `SUDO39_ALLOWED_PROGRAMS`) |
+| `allowUnsafe` | Allow any program (sets `SUDO39_ALLOW_UNSAFE=1`) |
+| `timeoutSecs` | Per-execution timeout in seconds (sets `SUDO39_TIMEOUT_SECS`) |
+| `askpassPath` | Path to askpass helper (sets `SUDO39_ASKPASS`) |
+
 ## Notes
 
 Any MCP client granted access to this server can request elevated operations allowed by your active policy. If the client can call the admin tools, it can also expand that active policy after the confirmation step. Treat the client, server process environment, and askpass helper as the administrative trust boundary.

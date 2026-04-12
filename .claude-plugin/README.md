@@ -5,11 +5,7 @@ This directory makes sudo39 installable as an OpenClaw **Claude bundle**.
 ## Install
 
 ```bash
-# From local directory
-openclaw plugins install ./path/to/sudo39
-
-# Or from archive
-openclaw plugins install ./sudo39.tgz
+openclaw plugins install git@github.com:alejandroqh/sudo39.git
 ```
 
 ## What it provides

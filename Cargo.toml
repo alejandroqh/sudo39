@@ -6,9 +6,20 @@ description = "Guarded privilege-elevation MCP server for AI agents (sudo, pkexe
 license = "MIT"
 authors = ["Alejandro Quintanar"]
 repository = "https://github.com/alejandroqh/sudo39"
+homepage = "https://github.com/alejandroqh/sudo39"
+documentation = "https://github.com/alejandroqh/sudo39"
 readme = "README.md"
 keywords = ["mcp", "sudo", "elevation", "privilege", "osascript"]
 categories = ["command-line-utilities", "os"]
+exclude = [
+    "dist/",
+    "target/",
+    ".claude-plugin/",
+    "openclaw-plugin/",
+    "CLAUDE.md",
+    ".mcp.json",
+    ".DS_Store",
+]
 
 [profile.release]
 strip = true
