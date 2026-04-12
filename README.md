@@ -154,17 +154,16 @@ Or manually in `.mcp.json`:
 }
 ```
 
-### Claude Bundle (`.claude-plugin/`)
+### OpenClaw
 
-Makes sudo39 installable via `openclaw plugins install` as a Claude bundle. Maps MCP server config from `.mcp.json`.
+Install from the [marketplace](https://github.com/alejandroqh/openclaw-marketplace):
 
 ```bash
-openclaw plugins install git@github.com:alejandroqh/sudo39.git
+openclaw plugins install sudo39 --marketplace https://github.com/alejandroqh/openclaw-marketplace --dangerously-force-unsafe-install
+openclaw gateway restart
 ```
 
-### OpenClaw Native Plugin (`openclaw-plugin/`)
-
-Full OpenClaw native plugin with typed tool proxies, config schema, and automatic MCP lifecycle management. Configurable options:
+Plugin config options:
 
 | Option | Description |
 |---|---|

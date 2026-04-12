@@ -1,10 +1,17 @@
 {
-  "name": "@sudo39/openclaw-sudo39",
+  "name": "sudo39",
   "version": "1.0.0",
   "description": "OpenClaw native plugin for sudo39 - guarded privilege-elevation MCP server for AI agents",
   "type": "module",
   "openclaw": {
-    "extensions": ["./index.ts"]
+    "extensions": ["./index.ts"],
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    }
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.0"
   },
   "keywords": ["openclaw", "plugin", "sudo", "elevation", "privilege", "mcp", "ai-agent"],
   "license": "MIT"
