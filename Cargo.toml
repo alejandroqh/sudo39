@@ -1,31 +1,35 @@
 [package]
 name = "sudo39"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
-description = "Guarded privilege-elevation MCP server for AI agents (sudo, pkexec, macOS admin prompt, Windows UAC)"
-license = "MIT"
+description = "Privilege-elevation MCP server for AI agents"
 authors = ["Alejandro Quintanar"]
+license = "Apache-2.0"
 repository = "https://github.com/alejandroqh/sudo39"
 homepage = "https://github.com/alejandroqh/sudo39"
-documentation = "https://github.com/alejandroqh/sudo39"
 readme = "README.md"
 keywords = ["mcp", "sudo", "elevation", "privilege", "osascript"]
 categories = ["command-line-utilities", "os"]
 exclude = [
     "dist/",
     "target/",
+    ".claude/",
     ".claude-plugin/",
     "openclaw-plugin/",
     "CLAUDE.md",
     ".mcp.json",
     ".DS_Store",
+    "build.sh",
+    "benchmark.sh",
+    "bench/",
 ]
 
 [profile.release]
 strip = true
 lto = true
 codegen-units = 1
+panic = "abort"
 
 [dependencies]
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
-turbomcp = "3.0.11"
+turbomcp = "3"

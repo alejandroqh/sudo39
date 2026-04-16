@@ -9,6 +9,18 @@ use std::{
 
 use turbomcp::prelude::*;
 
+// Compile-time check: MCP server version must match Cargo.toml
+const _: () = {
+    let cargo = env!("CARGO_PKG_VERSION").as_bytes();
+    let mcp = b"1.0.1";
+    assert!(cargo.len() == mcp.len(), "MCP server version does not match Cargo.toml — update #[server(version)] below");
+    let mut i = 0;
+    while i < cargo.len() {
+        assert!(cargo[i] == mcp[i], "MCP server version does not match Cargo.toml — update #[server(version)] below");
+        i += 1;
+    }
+};
+
 #[derive(Clone)]
 struct Sudo39 {
     policy: Arc<RwLock<Policy>>,
@@ -16,7 +28,7 @@ struct Sudo39 {
 
 #[server(
     name = "sudo39",
-    version = "1.0.0",
+    version = "1.0.1",
     description = "Guarded privilege-elevation MCP server for AI agents."
 )]
 impl Sudo39 {
