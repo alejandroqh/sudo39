@@ -101,6 +101,20 @@ Modes:
 - `macos_osascript`
 - `windows_uac`
 
+## Install
+
+```bash
+cargo install sudo39
+```
+
+### Install for any AI CLI / IDE
+
+Installs the binary and auto-configures it for every MCP client detected: **Claude Code**, **Claude Desktop**, **Codex**, **OpenCode**, **OpenClaw**.
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/alejandroqh/marketplace/main/h39.sh | sh
+```
+
 ## Build
 
 ```sh
@@ -121,57 +135,6 @@ For a stdio MCP client:
   }
 }
 ```
-
-## Plugin Integration
-
-### Claude Code
-
-Install the binary from GitHub:
-
-```bash
-cargo install sudo39
-```
-
-Then add it as an MCP server:
-
-```bash
-claude mcp add sudo39 sudo39
-```
-
-Or manually in `.mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "sudo39": {
-      "command": "sudo39",
-      "args": [],
-      "env": {
-        "SUDO39_ALLOWED_PROGRAMS": "id,whoami,systemctl"
-      }
-    }
-  }
-}
-```
-
-### OpenClaw
-
-Install from the [marketplace](https://github.com/alejandroqh/openclaw-marketplace):
-
-```bash
-openclaw plugins install sudo39 --marketplace https://github.com/alejandroqh/openclaw-marketplace --dangerously-force-unsafe-install
-openclaw gateway restart
-```
-
-Plugin config options:
-
-| Option | Description |
-|---|---|
-| `binaryPath` | Path to the sudo39 binary (default: `sudo39` in PATH) |
-| `allowedPrograms` | Comma-separated allowlist (sets `SUDO39_ALLOWED_PROGRAMS`) |
-| `allowUnsafe` | Allow any program (sets `SUDO39_ALLOW_UNSAFE=1`) |
-| `timeoutSecs` | Per-execution timeout in seconds (sets `SUDO39_TIMEOUT_SECS`) |
-| `askpassPath` | Path to askpass helper (sets `SUDO39_ASKPASS`) |
 
 ## Notes
 
