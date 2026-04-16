@@ -12,7 +12,7 @@ use turbomcp::prelude::*;
 // Compile-time check: MCP server version must match Cargo.toml
 const _: () = {
     let cargo = env!("CARGO_PKG_VERSION").as_bytes();
-    let mcp = b"1.0.1";
+    let mcp = b"1.0.2";
     assert!(cargo.len() == mcp.len(), "MCP server version does not match Cargo.toml — update #[server(version)] below");
     let mut i = 0;
     while i < cargo.len() {
@@ -28,7 +28,7 @@ struct Sudo39 {
 
 #[server(
     name = "sudo39",
-    version = "1.0.1",
+    version = "1.0.2",
     description = "Guarded privilege-elevation MCP server for AI agents."
 )]
 impl Sudo39 {
